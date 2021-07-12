@@ -9,4 +9,9 @@
     - 초기 세팅
     - 실습해보기
         - React.FC & function 장단점
+2 Step
+    - counter 를 만들어보자
+    - 간단한 input State Form 을 만들어보자.
+    - counter 를 수정해보자.
+    - reducer 를 연습해보자.
 ```

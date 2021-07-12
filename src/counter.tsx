@@ -1,12 +1,27 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
+
+// useReducer를 불러와서 Action 함수를 만들자. type INCREASE , DECREASE 를 만들어주자.
+type Action = { type: "INCREASE" } | { type: "DECREASE" };
+
+// reducer 함수를 만들어주자.
+function reducer(state: number, action: Action): number {
+    // switch 문을 사용하여 type 을 만들어주자.
+    switch (action.type) {
+        case "INCREASE":
+            return state + 1;
+        case "DECREASE":
+            return state - 1;
+        default:
+            throw new Error("Unhandled action type");
+    }
+}
 
 function Counter() {
-    // 타입을 명시하기 위해서 제네릭을 썼지만 생략해도 된다. 자동으로 타입추론을 해준다.
-    const [count, setCount] = useState<number>(0);
-    // onClick 함수 count 를 +1 해준다.
-    const onIncrease = () => setCount(count + 1);
-    // onClick 함수 count 를 -1 해준다.
-    const onDecrease = () => setCount(count - 1);
+    // reducer를 불러오자.
+    const [count, dispatch] = useReducer(reducer, 0);
+    // dispatch 를 불러와서 type을 호출하자.
+    const onIncrease = () => dispatch({ type: "INCREASE" });
+    const onDecrease = () => dispatch({ type: "DECREASE" });
     return (
         <>
             <div>
