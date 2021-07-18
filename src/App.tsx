@@ -3,6 +3,7 @@ import Counter from "./counter";
 import Greetings from "./Greetings";
 import MyForm from "./MyForm";
 import ReducerSample from "./ReducerSample";
+import { SampleProvider } from "./SampleContext";
 
 function App() {
     // Greetings 에 넘겨줘야하는 함수를 생성
@@ -19,7 +20,9 @@ function App() {
             <Greetings name="Hello" onClick={onClick} />
             <Counter />
             <MyForm onSubmit={onSubmit} />
-            <ReducerSample />
+            <SampleProvider>
+                <ReducerSample />
+            </SampleProvider>
         </div>
     );
 }
