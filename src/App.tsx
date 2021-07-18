@@ -4,7 +4,7 @@ import Greetings from "./Greetings";
 import MyForm from "./MyForm";
 import ReducerSample from "./ReducerSample";
 import { SampleProvider } from "./SampleContext";
-
+import CounterContainer from "./containers/CounterContainer";
 function App() {
     // Greetings 에 넘겨줘야하는 함수를 생성
     const onClick = (name: string) => {
@@ -23,6 +23,7 @@ function App() {
             <SampleProvider>
                 <ReducerSample />
             </SampleProvider>
+            <CounterContainer />
         </div>
     );
 }

@@ -1,5 +1,4 @@
 import React, { createContext, Dispatch, useContext, useReducer } from "react";
-
 type Color = "red" | "orange" | "yellow";
 
 type State = {
