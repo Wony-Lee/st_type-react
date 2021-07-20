@@ -14,4 +14,16 @@
     - 간단한 input State Form 을 만들어보자.
     - counter 를 수정해보자.
     - reducer 를 연습해보자.
+3 Step
+    - Context
+4 Step
+    - Redux 1
+        - Redux 설치
+        - Redux 실습
+    - Redux 2
+        - Todos Reducer 를 만들자.
+        - 컴포넌트를 생성하자. TodoInsert
+        - 컴포넌트를 생성하자. TodoItem
+        - 컴포넌트를 생성하자. TodoList
+        - 컨테이너를 생성하고 App.tsx에 등록해주자.
 ```
