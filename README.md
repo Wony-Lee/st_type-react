@@ -31,4 +31,10 @@
     - createReducer 사용해서 리팩토링(오브젝트 맵)
     - createReducer 사용해서 리팩토링(메소드 체이닝)
     - TodoList 리팩토링
+6 Step
+    - Redux 모듈 여러 파일로 분리하기
+        - actions.ts
+        - types.ts
+        - reducers.ts
+        - index.ts
 ```
