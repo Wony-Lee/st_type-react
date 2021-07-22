@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Counter from "../components/Counter";
 import { RootState } from "../modules";
-import { decrease, increase, increase_by } from "../modules/counter";
+import { decrease, increase, increaseBy } from "../modules/counter";
 
 // Props 를 따로 받아올 건 아니기때문에 Props의 type은 전달해주지 않아도 된다.
 function CounterContainer() {
@@ -17,7 +17,7 @@ function CounterContainer() {
         dispatch(decrease());
     };
     const onIncreaseBy = (diff: number) => {
-        dispatch(increase_by(diff));
+        dispatch(increaseBy(diff));
     };
 
     return (
