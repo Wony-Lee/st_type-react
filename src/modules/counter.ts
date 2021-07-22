@@ -1,55 +1,34 @@
-const INCRAESE = "counter/INCRAESE" as const;
-const DECREASE = "counter/DECREASE" as const;
-const INCREASE_BY = "counter/INCREASE_BY" as const;
+// typesafe-actions 를 import 해준다.
+import { createAction, ActionType, createReducer } from "typesafe-actions";
 
-// 주의할 점 increase 에 마우스 커서를 대보면 action 생성함수의 type이 string 으로 되어있음.
-// 이렇게 되면 reducer 를 작성할 때 typescript 의 type을 유추할 수 없음.
-// 이 때 코드를 조금만 수정해주면 된다. 위에 as const 를 넣어주면 된다.
-export const increase = () => ({ type: INCRAESE });
-export const decrease = () => ({ type: DECREASE });
-// diff 라는 값을 payload 로 받아오고, 타입은 number 로 선언
-export const increase_by = (diff: number) => ({
-    type: INCREASE_BY,
-    payload: diff,
-});
+const INCRAESE = "counter/INCRAESE";
+const DECREASE = "counter/DECREASE";
+const INCREASE_BY = "counter/INCREASE_BY";
 
-// 리듀서를 작성할 때에는 상태에 대한 타입을 만들어줘야한다.
+// 만들었던것을 createAction으로 만든다.
+// payload 가 특정값을 있다고하면 제네릭을 넣어주면된다.
+// 하지만 지금은 특정값이 존재하지않기때문에 생략한다.
+export const increase = createAction(INCRAESE)();
+export const decrease = createAction(DECREASE)();
+export const increase_by = createAction(INCREASE_BY)<number>();
+
 type CounterState = {
     count: number;
 };
 
-// 리듀서를 구현하기전에 초기 상태를 구현
 const initialState: CounterState = {
     count: 0,
 };
 
-// returnType 유틸타입이 있는데, 이것을 사용해서 특정 함수의 결과물을 받아 올 수 있다.
-type ConterAction =
-    | ReturnType<typeof increase>
-    | ReturnType<typeof decrease>
-    | ReturnType<typeof increase_by>;
+const actions = { increase, decrease, increase_by };
 
-function counter(
-    state: CounterState = initialState,
-    action: ConterAction
-): CounterState {
-    // 여기서 리듀서를 구현해주자.
-    switch (action.type) {
-        case INCRAESE:
-            return {
-                count: state.count + 1,
-            };
-        case DECREASE:
-            return {
-                count: state.count - 1,
-            };
-        case INCREASE_BY:
-            return {
-                count: state.count + action.payload,
-            };
-        default:
-            return state;
-    }
-}
+type CounterAction = ActionType<typeof actions>;
+
+// createReducer를 사용하면 reducer 에서 관리하는 update 함수들을 하나하나 관리하는 방식으로 만들어 줄 수 있다.
+const counter = createReducer<CounterState, CounterAction>(initialState, {
+    [INCRAESE]: (state) => ({ count: state.count + 1 }),
+    [DECREASE]: (state) => ({ count: state.count - 1 }),
+    [INCREASE_BY]: (state, action) => ({ count: state.count + action.payload }),
+});
 
 export default counter;
