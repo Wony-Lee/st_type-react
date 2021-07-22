@@ -26,4 +26,9 @@
         - 컴포넌트를 생성하자. TodoItem
         - 컴포넌트를 생성하자. TodoList
         - 컨테이너를 생성하고 App.tsx에 등록해주자.
+5 Step
+    - typesafe-actions 로 리덕스 모듈 리팩토링
+    - createReducer 사용해서 리팩토링(오브젝트 맵)
+    - createReducer 사용해서 리팩토링(메소드 체이닝)
+    - TodoList 리팩토링
 ```
