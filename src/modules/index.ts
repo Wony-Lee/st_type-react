@@ -4,11 +4,13 @@ import { combineReducers } from "redux";
 import counter from "./counter";
 
 import todos from "./todos";
+import github from "./github";
 
 // rootReducer에 counter 를 담아준다.
 const rootReducer = combineReducers({
     counter,
     todos,
+    github,
 });
 
 export default rootReducer;
