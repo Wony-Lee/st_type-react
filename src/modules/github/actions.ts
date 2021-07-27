@@ -10,12 +10,4 @@ export const getUserProfileAsync = createAsyncAction(
     GET_USER_PROFILE,
     GET_USER_PROFILE_SUCCESS,
     GET_USER_PROFILE_ERROR
-)<any, GithubProfile, AxiosError>();
-
-// export const getUserProfile = createStandardAction(GET_USER_PROFILE)();
-// export const getUserProfileSuccess = createStandardAction(
-//     GET_USER_PROFILE_SUCCESS
-// )<GithubProfile>();
-// export const getUserProfileError = createStandardAction(
-//     GET_USER_PROFILE_ERROR
-// )<AxiosError>();
+)<string, GithubProfile, AxiosError>();
