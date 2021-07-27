@@ -1,4 +1,3 @@
-// import { createStandardAction } from "typesafe-actions/dist/deprecated/create-standard-action";
 import { createAsyncAction } from "typesafe-actions";
 import { GithubProfile } from "../../api/github";
 import { AxiosError } from "axios";
