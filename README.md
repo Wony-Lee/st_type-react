@@ -37,4 +37,9 @@
         - types.ts
         - reducers.ts
         - index.ts
+7 Step
+    - Thunk 리팩토링
+    - Reducer 리팩토링
+8 Step
+    - Redux-Saga
 ```

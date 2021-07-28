@@ -1,6 +1,4 @@
-import { AxiosError } from "axios";
 import { AsyncActionCreatorBuilder, PayloadAction } from "typesafe-actions";
-import { GithubProfile } from "../api/github";
 import { call, put } from "redux-saga/effects";
 
 type PromiseCreatorFunction<P, T> =
